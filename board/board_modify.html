@@ -27,24 +27,9 @@
 			font-size: 16px;
 			resize: none;
 		}
-
-        .contentwrap{
-            width:70%;
-             margin-bottom: 20px;
-        
-        }
-
-        .btnwrap div{
-            display: inline-block;
-        }
-
-        h1{
-            margin: 30px;
-        }
     </style>
 </head>
 <body>
-    <!-- nav bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
@@ -77,43 +62,22 @@
         </div>
       </nav>
 
-      <h1>게시판 디테일</h1>
+      <h1>게시판 글쓰기</h1>
     <div class="wrap">
-    <!-- title -->
-        <div id="titlediv">
-            title
+        <div class="mb-3" id ="title_modify">
+            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <input type="text" name="inputvalue" class="form-control" id="inputtitle" value="">
         </div>
-        <hr>
-    <!-- content -->
-    
-        <div class="contentwrap">
-            <div id="contentdiv">
-            </div>
+        <div class="mb-3" id="'content_modify">
+            <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+            <textarea class="form-control" id="inputtextarea" rows="3">
+                
+            </textarea>
         </div>
-
-        <!-- 수정 /삭제 -->
-        <div class="btnwrap" id="buttons">
-           <!-- 수정삭제 버튼 자리 -->
+        <div class="button" id="modify_button">
+            <button type="button" class="btn btn-primary" onclick="handleModfy()">글작성하기</button>
         </div>
     </div>
 </body>
-<script src="/static/js/board_detail.js"></script>
-<script type="text/javascript">
-   $(".btnwrap").on('click', '#deletebnt', function() {
-    $.ajax({
-        
-        type: 'DELETE',
-        url: `http://127.0.0.1:8000/board/${id}`,
-        dataType: 'json',
-        success: function(result) {
-            
-        alert('게시글이 삭제 되었습니다.')
-        window.location.href="index.html"
-        },
-        error: function() {
-            console.log('통신에러')
-        }
-    });
-});
-</script>
+<script src="/static/js/board_modify.js"></script>
 </html>
